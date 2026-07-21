@@ -1,0 +1,9 @@
+model: "gpt-5-mini"
+input_file: "data_templates/abstract_input_template.csv"
+human_file: "data_templates/human_screening_template.csv"
+output_file: "outputs/ai_screening_results.csv"
+prompt_type: "zero_direct_binary"
+study_id_column: "study_id"
+human_decision_column: "human_include"
+likert_include_threshold: 3
+sleep_seconds: 0.5
