@@ -1,0 +1,9 @@
+.env
+config.yaml
+*.xlsx
+*.csv
+outputs/*
+!outputs/README_outputs.md
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
