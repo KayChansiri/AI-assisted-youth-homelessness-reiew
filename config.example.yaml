@@ -1,9 +1,35 @@
+# Example configuration file for AI-assisted abstract screening.
+# Copy this file and rename it config.yaml before running the code locally.
+
+# OpenAI model to use.
+# Examples: gpt-5, gpt-5-mini, gpt-5-nano, gpt-5.2
 model: "gpt-5-mini"
+
+# Input file containing study titles and abstracts.
 input_file: "data_templates/abstract_input_template.csv"
+
+# Human screening file used for evaluation.
 human_file: "data_templates/human_screening_template.csv"
+
+# Output file where AI screening decisions will be saved.
 output_file: "outputs/ai_screening_results.csv"
-prompt_type: "zero_direct_binary"
+
+# Choose one prompt type:
+# prompt_1_strict_binary
+# prompt_1_strict_likert
+# prompt_2_triage_binary
+# prompt_2_triage_likert
+# prompt_3_expanded_binary
+# prompt_3_expanded_likert
+prompt_type: "prompt_3_expanded_binary"
+
+# Column names used for merging and evaluation.
 study_id_column: "study_id"
 human_decision_column: "human_include"
+
+# For Likert prompts, scores at or above this value are treated as Include.
+# Example: if threshold = 3, scores 3, 4, and 5 become Include.
 likert_include_threshold: 3
+
+# Optional pause between API calls to reduce rate-limit issues.
 sleep_seconds: 0.5
