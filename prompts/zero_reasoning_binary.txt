@@ -1,3 +1,0 @@
-This prompt asks the model to reason through the screening criteria before giving a binary Include or Exclude decision.
-
-Use this prompt type when the review team wants more transparent decision logic, while still producing a final binary output.
