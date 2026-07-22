@@ -1,1 +1,81 @@
+Prompt 1: Strict Eligibility Screening — Binary Format
 
+Purpose:
+This prompt asks the model to behave like a strict systematic review screener. It evaluates multiple eligibility criteria and includes a study only when all criteria appear to be satisfied.
+
+Important note:
+This is a strict title/abstract screening prompt. It may be too conservative when abstracts do not provide enough detail.
+
+Study Details:
+{study_details}
+
+Screening Task:
+You are an expert systematic review screener. Your task is to determine whether the study should be included in a systematic review of interventions for youth experiencing homelessness or housing instability.
+
+Evaluate each criterion independently.
+
+Eligibility Criteria:
+
+1. Original or Empirical Research
+Include only if the study appears to be based on original empirical research, primary data, intervention evaluation, implementation data, or direct observations.
+Exclude editorials, commentaries, letters, protocols, systematic reviews, meta-analyses, and studies based only on secondary analysis unless clearly tied to intervention evaluation.
+
+2. Youth Population
+Include only if the study focuses on youth, adolescents, young adults, or young people within or overlapping ages 13–25.
+Exclude if the study clearly focuses only on children younger than 13 or adults older than 25.
+
+3. Homelessness or Housing Instability
+Include only if the population is homeless, unstably housed, runaway, street-involved, shelter-involved, couch surfing, doubled up, leaving foster care and at risk of homelessness, or otherwise clearly connected to homelessness or housing instability.
+Exclude if there is no apparent connection to homelessness, housing instability, runaway status, street involvement, or homelessness risk.
+
+4. Intervention, Program, Service, or Policy Focus
+Include only if the study evaluates, describes, or examines an intervention, program, service model, policy, practice, or systems-level response.
+Exclude if the study only describes prevalence, risk factors, needs, or background conditions without any program, service, intervention, or policy focus.
+
+5. Relevant Outcomes or Implementation Information
+Include only if the study appears to report outcomes, effectiveness, implementation, service delivery, access, engagement, retention, participation, or other intervention-related evidence.
+Exclude if no outcome, implementation, or intervention-related information is apparent.
+
+6. Relevant Country Context
+Include only if the study appears to take place in an OECD or comparable high-income country context.
+Exclude if the country context is clearly outside the intended review scope.
+
+7. Relevance to Youth Homelessness Intervention Evidence
+Include only if the study clearly contributes to evidence about interventions, services, systems, or programs for youth experiencing homelessness, housing instability, or clear risk of homelessness.
+
+8. Sufficient Abstract Information
+Include only if the title, abstract, and metadata provide enough information to judge that the study meets all criteria.
+
+Decision Rule:
+Recommend Include only if all eligibility criteria are met or strongly implied.
+Recommend Exclude if one or more eligibility criteria are not met or cannot be determined from the abstract and metadata.
+
+Return a list of exclusion codes for criteria not met:
+
+X-1: Not original or empirical research
+X-2: Target population not youth ages 13–25
+X-3: Population not homeless, unstably housed, runaway, street-involved, or at risk of homelessness
+X-4: No program, service, intervention, policy, or systems focus
+X-5: No relevant outcome, effectiveness, or implementation information
+X-6: Country context outside review scope
+X-7: Not relevant to youth homelessness intervention evidence
+X-8: Insufficient information to determine eligibility
+
+Return only a JSON object in the following format:
+
+{
+  "Decision": "Include" or "Exclude",
+  "Explanation_Codes": ["X-code"] or [],
+  "Eligibility_Results": {
+    "Original_Empirical": "Yes" or "No",
+    "Youth_Age_13_25": "Yes" or "No",
+    "Homelessness_Target": "Yes" or "No",
+    "Program_Focus": "Yes" or "No",
+    "Outcome_or_Implementation": "Yes" or "No",
+    "Country_Context": "Yes" or "No",
+    "Youth_Homelessness_Relevance": "Yes" or "No",
+    "Sufficient_Information": "Yes" or "No"
+  }
+}
+
+Return only the JSON object. No extra text.
