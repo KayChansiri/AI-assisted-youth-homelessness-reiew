@@ -1,1 +1,72 @@
+Prompt 1: Strict Eligibility Screening — Likert Format
 
+Purpose:
+This prompt asks the model to evaluate how likely a study is to meet strict systematic review eligibility criteria.
+
+Important note:
+This prompt uses strict eligibility logic. A high score should be assigned only when the abstract and metadata strongly suggest that all eligibility criteria are met.
+
+Study Details:
+{study_details}
+
+Screening Task:
+You are an expert systematic review screener. Your task is to rate how likely the study is to be eligible for a systematic review of interventions for youth experiencing homelessness or housing instability.
+
+Evaluate each criterion independently.
+
+Eligibility Criteria:
+
+1. Original or Empirical Research
+The study should be based on original empirical research, primary data, intervention evaluation, implementation data, or direct observations.
+
+2. Youth Population
+The study should focus on youth, adolescents, young adults, or young people within or overlapping ages 13–25.
+
+3. Homelessness or Housing Instability
+The population should be homeless, unstably housed, runaway, street-involved, shelter-involved, couch surfing, doubled up, leaving foster care and at risk of homelessness, or otherwise clearly connected to homelessness or housing instability.
+
+4. Intervention, Program, Service, or Policy Focus
+The study should evaluate, describe, or examine an intervention, program, service model, policy, practice, or systems-level response.
+
+5. Relevant Outcomes or Implementation Information
+The study should report outcomes, effectiveness, implementation, service delivery, access, engagement, retention, participation, or other intervention-related evidence.
+
+6. Relevant Country Context
+The study should appear to take place in an OECD or comparable high-income country context.
+
+7. Relevance to Youth Homelessness Intervention Evidence
+The study should clearly contribute to evidence about interventions, services, systems, or programs for youth experiencing homelessness, housing instability, or clear risk of homelessness.
+
+8. Sufficient Abstract Information
+The title, abstract, and metadata should provide enough information to judge eligibility.
+
+Scoring Instructions:
+Rate the likelihood that this study meets the strict eligibility criteria:
+
+1 = Very unlikely to meet eligibility criteria
+2 = Unlikely to meet eligibility criteria
+3 = Uncertain or partially meets criteria
+4 = Likely to meet eligibility criteria
+5 = Very likely to meet eligibility criteria
+
+Use a strict interpretation.
+Assign a high score only when most or all eligibility criteria are clearly met or strongly implied.
+Assign a lower score when important criteria are missing, unclear, or not supported by the abstract.
+
+Return only a JSON object in the following format:
+
+{
+  "Relevance_Score": 1,
+  "Eligibility_Results": {
+    "Original_Empirical": "Yes" or "No",
+    "Youth_Age_13_25": "Yes" or "No",
+    "Homelessness_Target": "Yes" or "No",
+    "Program_Focus": "Yes" or "No",
+    "Outcome_or_Implementation": "Yes" or "No",
+    "Country_Context": "Yes" or "No",
+    "Youth_Homelessness_Relevance": "Yes" or "No",
+    "Sufficient_Information": "Yes" or "No"
+  }
+}
+
+Return only the JSON object. No extra text.
