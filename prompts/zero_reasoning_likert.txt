@@ -1,3 +1,0 @@
-This prompt asks the model to reason through the screening criteria and then assign a relevance score.
-
-Use this prompt type when the review team wants both reasoning and a graded relevance judgment.
