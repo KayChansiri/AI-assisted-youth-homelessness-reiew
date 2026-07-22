@@ -1,2 +1,3 @@
-study_id,title,abstract,publication_year,journal_name,author,author_affiliation,keywords
-example_001,Example study title,Example abstract text,2024,Example Journal,Example Author,Example University,"youth; homelessness; intervention"
+study_id,title,abstract,publication_year,journal_name,publisher,author,author_affiliation,keywords
+example_001,Example youth homelessness intervention study,This is a fake abstract about a program serving young people experiencing housing instability.,2024,Example Journal,Example Publisher,Example Author,Example University,"youth; homelessness; intervention"
+example_002,Example unrelated study,This is a fake abstract about an unrelated topic with no youth homelessness or intervention focus.,2024,Example Journal,Example Publisher,Example Author,Example University,"example; unrelated"
