@@ -1,0 +1,5 @@
+This prompt asks the model to make a direct Include or Exclude decision.
+
+Use this prompt type when the review team wants a simple binary screening output that can be compared directly with human screening decisions.
+
+The model should lean toward Include when the abstract is ambiguous but plausibly relevant, because the goal of early abstract screening is to reduce missed studies.
