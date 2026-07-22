@@ -1,1 +1,79 @@
+Prompt 3: Expanded Inclusion Logic — Likert Format
 
+Purpose:
+This prompt asks the model to rate how likely a study is to be relevant using an expanded interpretation of youth homelessness intervention evidence.
+
+Important note:
+This is an initial triage stage, not a final eligibility decision. Human reviewers will validate the final inclusion decision.
+
+Study Details:
+{study_details}
+
+Screening Task:
+You are an expert reviewer assisting with abstract pre-screening for a systematic review of youth homelessness interventions.
+
+This is an initial triage stage, not a final eligibility decision.
+
+Your goal is to estimate how likely this study should be INCLUDED for human full-text review.
+
+When abstracts are ambiguous or incomplete, lean toward higher likelihood scores to minimize false negatives.
+
+Pre-Screening Focus:
+
+1. Original or Empirical Research
+The study should be based on primary data, direct observations, intervention evaluation, implementation research, qualitative data, quantitative data, or mixed methods.
+
+Do not give a high score to editorials, letters, protocols, systematic reviews, meta-analyses, or studies relying only on secondary data unless they clearly analyze intervention-relevant programs or services.
+
+2. Target Population: Youth Ages 13–25
+Assign a higher score if:
+- The study uses terms such as youth, adolescents, young people, young adults, runaway youth, street youth, street-involved youth, or related terms.
+- The study includes a mixed-age sample that may cover youth, such as 16–30 or 18–35.
+- No exact age is mentioned, but the population is youth-related.
+- The intervention setting or system serves youth or at-risk young people, such as schools, shelters, child welfare systems, juvenile justice systems, drop-in centers, outreach programs, or youth-serving agencies.
+
+Assign a lower score only if the study clearly focuses solely on ages outside 13–25.
+
+3. Target Population: Homelessness, Housing Instability, or Risk
+Assign a higher score if:
+- The population is homeless, unstably housed, runaway, street-involved, vulnerably housed, shelter-involved, couch surfing, doubled up, leaving foster care, refugee or migrant youth at housing risk, or at risk of homelessness.
+- The population is served by systems addressing homelessness or housing instability, such as shelters, drop-in centers, Housing First, McKinney-Vento programs, foster care transition services, outreach programs, or homelessness prevention services.
+- The study addresses social, educational, health, behavioral health, or service programs aimed at populations known to be at high risk of homelessness.
+- The population is described as disadvantaged, vulnerable, street-connected, system-involved, or unstably supported and housing status is unclear.
+
+Assign a lower score only if the population is clearly unrelated to homelessness, housing instability, runaway status, street involvement, or homelessness risk.
+
+4. Program, Service, Intervention, Policy, or Systems Focus
+Assign a higher score if the study examines any program, service, intervention, policy, or systems-level support delivered to, or within systems that serve, homeless or at-risk youth.
+
+Relevant areas may include housing, outreach, case management, mental health, substance use, education, employment, sexual health, public health, family support, child welfare transition, juvenile justice transition, service coordination, or homelessness prevention.
+
+Do not limit relevance to programs that directly target housing outcomes.
+
+Other criteria, including effectiveness, implementation, and geography, will be assessed at full-text review. Do not assign a low score only because these details are missing from the abstract.
+
+Scoring Instructions:
+Rate the likelihood that this study should be INCLUDED for human full-text review using the following scale:
+
+1 = Very unlikely to be relevant
+2 = Unlikely to be relevant
+3 = Possibly relevant
+4 = Likely relevant
+5 = Very likely relevant
+
+Use the full range of the scale.
+When in doubt, assign a higher score to minimize false negatives.
+
+Return only a JSON object in the following format:
+
+{
+  "Relevance_Score": 1,
+  "Focus_Area_Results": {
+    "Original_Empirical": "Yes" or "No",
+    "Youth_Age_13_25": "Yes" or "No",
+    "Homelessness_Target": "Yes" or "No",
+    "Program_Focus": "Yes" or "No"
+  }
+}
+
+Return only the JSON object. No extra text.
