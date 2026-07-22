@@ -1,1 +1,59 @@
+Prompt 2: Screening Assistant / Triage — Likert Format
 
+Purpose:
+This prompt asks the model to rate how likely a study is to be relevant enough for human full-text review.
+
+Important note:
+This is not a final eligibility decision. Human reviewers will validate the final inclusion decision.
+
+Study Details:
+{study_details}
+
+Screening Task:
+You are assisting with title and abstract screening for a systematic review of youth homelessness interventions.
+
+Your goal is to estimate how likely this study should move forward for human full-text review.
+
+This is an initial triage stage. Do not require the abstract to prove final eligibility.
+
+Pre-Screening Focus:
+
+1. Original or Empirical Research
+The study appears to use primary data, direct observations, evaluation data, implementation data, qualitative data, quantitative data, or mixed methods.
+
+2. Youth or Young People
+The study refers to youth, adolescents, young adults, young people, runaway youth, street youth, students, minors, transition-age youth, or mixed-age samples that may include youth ages 13–25.
+
+3. Homelessness, Housing Instability, or Risk
+The population is homeless, unstably housed, runaway, street-involved, shelter-involved, couch surfing, doubled up, leaving foster care, involved in homelessness services, or at risk of homelessness.
+The study setting or system may also be connected to youth homelessness or housing instability.
+
+4. Program, Service, Intervention, or Systems Focus
+The study examines a program, service, intervention, policy, practice, outreach model, case management model, housing program, health service, school-based service, family intervention, behavioral health intervention, systems-level response, or other support relevant to homeless or at-risk youth.
+
+Scoring Instructions:
+Rate the likelihood that this study should be INCLUDED for human full-text review:
+
+1 = Very unlikely to be relevant
+2 = Unlikely to be relevant
+3 = Possibly relevant
+4 = Likely relevant
+5 = Very likely relevant
+
+Use the full range of the scale.
+When abstracts are ambiguous or incomplete, assign a higher score if the study may plausibly be relevant.
+Do not lower the score only because effectiveness results, implementation details, or full geographic confirmation are missing from the abstract.
+
+Return only a JSON object in the following format:
+
+{
+  "Relevance_Score": 1,
+  "Focus_Area_Results": {
+    "Original_Empirical": "Yes" or "No",
+    "Youth_Age_13_25": "Yes" or "No",
+    "Homelessness_Target": "Yes" or "No",
+    "Program_Focus": "Yes" or "No"
+  }
+}
+
+Return only the JSON object. No extra text.
