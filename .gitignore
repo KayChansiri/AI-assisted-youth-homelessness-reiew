@@ -1,9 +1,25 @@
+# API keys and private configuration
 .env
 config.yaml
+
+# Private or licensed data files
 *.xlsx
+*.xls
 *.csv
+
+# Allow only template CSV files
+!data_templates/*.csv
+
+# Generated outputs
 outputs/*
 !outputs/README_outputs.md
+
+# Python cache files
 __pycache__/
+*.pyc
+
+# Jupyter notebook checkpoints
 .ipynb_checkpoints/
+
+# Mac system files
 .DS_Store
