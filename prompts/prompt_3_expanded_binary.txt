@@ -1,1 +1,78 @@
+Prompt 3: Expanded Inclusion Logic — Binary Format
 
+Purpose:
+This prompt asks the model to use an expanded interpretation of relevance. The goal is to reduce missed studies during abstract screening.
+
+Important note:
+This is an initial triage stage, not a final eligibility decision. Human reviewers will validate the final inclusion decision.
+
+Study Details:
+{study_details}
+
+Screening Task:
+You are an expert reviewer for research studies with human-like reasoning. Your goal is to assist in pre-screening abstracts to identify studies that might meet inclusion criteria for a systematic review of youth homelessness interventions.
+
+This is an initial triage stage, not a final eligibility decision.
+
+When abstracts are ambiguous or incomplete, lean toward inclusion for further review to minimize false negatives.
+
+Pre-Screening Focus:
+
+1. Original or Empirical Research
+The study is based on primary data, direct observations, intervention evaluation, implementation research, qualitative data, quantitative data, or mixed methods.
+
+Exclude editorials, letters, protocols, systematic reviews, meta-analyses, and studies that rely only on secondary data or reanalysis of existing datasets unless they clearly evaluate or analyze an intervention-relevant program or service.
+
+2. Target Population: Youth Ages 13–25
+Include if:
+- The study uses terms such as youth, adolescents, young people, young adults, runaway youth, street youth, street-involved youth, or related terms.
+- The study includes a mixed-age sample that may cover youth, such as 16–30 or 18–35.
+- No exact age is mentioned, but the population is described as youth-related.
+- The intervention setting or system serves youth or at-risk young people, such as schools, shelters, child welfare systems, juvenile justice systems, drop-in centers, outreach programs, or youth-serving agencies.
+
+Exclude only if the study explicitly states that it focuses solely on ages clearly outside 13–25.
+
+3. Target Population: Homelessness, Housing Instability, or Risk
+Include if:
+- The population is homeless, unstably housed, runaway, street-involved, vulnerably housed, shelter-involved, couch surfing, doubled up, leaving foster care, refugee or migrant youth at housing risk, or at risk of homelessness.
+- The population is served by systems addressing homelessness or housing instability, such as shelters, drop-in centers, Housing First, McKinney-Vento programs, foster care transition services, outreach programs, or homelessness prevention services.
+- The study addresses social, educational, health, behavioral health, or service programs aimed at populations known to be at high risk of homelessness.
+- The population is described as disadvantaged, vulnerable, street-connected, system-involved, or unstably supported and housing status is unclear.
+
+Exclude only if the population is explicitly stated to have no connection to homelessness, housing instability, runaway status, street involvement, or homelessness risk.
+
+4. Program, Service, Intervention, Policy, or Systems Focus
+Include interventions, programs, services, policies, or systems-level supports addressing any issue when delivered to, or within systems that serve, homeless or at-risk youth.
+
+Relevant areas may include housing, outreach, case management, mental health, substance use, education, employment, sexual health, public health, family support, child welfare transition, juvenile justice transition, service coordination, or homelessness prevention.
+
+Do not limit inclusion to programs that directly target housing outcomes.
+
+Other criteria, including effectiveness reporting, implementation reporting, and full geographic confirmation, will be checked at full-text review. Do not exclude based on these criteria at the abstract screening stage.
+
+Decision Instructions:
+Recommend Include when the study clearly or plausibly matches the pre-screening focus areas.
+Recommend Exclude only if there is clear evidence that the study does not match the focus areas.
+When in doubt, lean toward Include to minimize false negatives.
+
+Return a list of exclusion codes for criteria not met:
+
+X-1: Not original or empirical research
+X-2: Target population explicitly not youth ages 13–25
+X-3: Population explicitly not homeless, unstably housed, runaway, street-involved, or at risk of homelessness
+X-4: No program, service, intervention, policy, or systems focus
+
+Return only a JSON object in the following format:
+
+{
+  "Decision": "Include" or "Exclude",
+  "Explanation_Codes": ["X-code"] or [],
+  "Focus_Area_Results": {
+    "Original_Empirical": "Yes" or "No",
+    "Youth_Age_13_25": "Yes" or "No",
+    "Homelessness_Target": "Yes" or "No",
+    "Program_Focus": "Yes" or "No"
+  }
+}
+
+Return only the JSON object. No extra text.
